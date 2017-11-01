@@ -12,12 +12,13 @@
     <ul class="poke-list">
         <li v-for="item in pokemonList" class="poke-list-item">
            <img :src="'http://serebii.net/pokedex-xy/'+item.number+'.png'"/>
-           <span>{{item.number}} - {{item.name}}</span> 
+           <span>{{item.number | pokeNumber}} - {{item.name}}</span> 
         </li>
     </ul>
 </div>
 
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="./js/filters.js"></script>
 <script src="./js/app.js"></script>
 </body>
 </html>

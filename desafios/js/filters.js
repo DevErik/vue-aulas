@@ -1,0 +1,1 @@
+Vue.filter('SemVogais', (string, isOn) => isOn ? string.replace(/[aeiou]/gi, '') : string);

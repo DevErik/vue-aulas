@@ -2,20 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PokéDex</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <title>Desafios</title>  
 </head>
 <body>
-<div id="app">
+<div id="app1">
     <ul>
         <li v-for="number in 5">
            <span>5 x {{number*2}} = {{number*10}}</span> 
         </li>
     </ul>
-    <button v-on:click="upCounter()">Click me</button> {{counter}}
+    <button @click="upCounter()">Click me</button>
+</div>
+
+<div id="app2">
+    {{counter}}
+</div>
+
+<div id="app">
+    <button @click="removerVogais()">Remover Vogais</button>
+    {{ title | SemVogais(inOn) }}
 </div>
 
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="./js/filters.js"></script>
 <script src="./js/app.js"></script>
 </body>
 </html>
