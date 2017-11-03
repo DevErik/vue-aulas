@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<input v-color="color" type="text" />
+	</div>
+
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+		Vue.directive('color', function (el, bindig) {
+			el.style.backgroundColor = bindig.value
+		})
+
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				color: 'red'
+			}
+		})
+
+
+	</script>
+</body>
+
+</html>

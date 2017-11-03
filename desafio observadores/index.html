@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>My number {{number}}</h1>
+        <button @click="addNumber()">Click me</button>
+        <h1>{{array}}</h1>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                number: 0,
+                array: []
+            },
+            methods: {
+                addNumber: function(){
+                    this.array.push(this.number);
+                    this.number ++;
+                }
+            },
+            computed: {
+                updateArray: function () {
+                    return this.array.unshift(number)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

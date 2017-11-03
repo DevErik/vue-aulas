@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app" >
+	<my-component>
+		<template scope="props" >
+			<h1>TreinaWeb - {{props.compText}}</h1>
+		</template>
+	</my-component>
+</div>
+
+
+<script src="https://unpkg.com/vue/dist/vue.js" ></script>
+<script>
+	Vue.component('my-component', {
+		template: `
+			<div>
+				<slot :compText="myText" ></slot>
+				<div>Hello</div>
+			</div>
+		`,
+		data: function(){
+			return {
+				myText: 'def'
+			}
+		}
+	})
+
+	var app = new Vue({
+		el: '#app',
+		data: {
+			myText: 'abc'
+		}
+	})
+
+
+</script>
+</body>
+</html>
