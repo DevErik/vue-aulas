@@ -5,13 +5,13 @@ const app = new Vue({
         nameFilter: ''
     },
     mounted: function(){
-        PokeService.API.Pokemon.listAll().then(pokemonList => {
-            this.pokemonList = pokemonList;
-        })
+      PokeService.API.Pokemon.listAll().then(pokemonList => {
+          this.pokemonList = pokemonList;
+      })
     },
     computed: {
         pokeList: function(){
-            var nameFilter = this.nameFilter.toLowerCase();
+            let nameFilter = this.nameFilter.toLowerCase();
             return this.pokemonList.filter( pokemon => pokemon.name.includes(nameFilter) )
         }
     }

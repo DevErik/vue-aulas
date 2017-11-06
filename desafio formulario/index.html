@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio forms</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="myText"></input>
+        <ul>
+            <li v-for="char in letters">{{char}}</li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                myText: ''
+            },
+            computed: {
+                letters: function(){
+                    var letters = [];
+                    var text = this.myText.split('');
+                    text.forEach(char => {
+                        if(!letters.includes(char)){
+                            letters.push(char)
+                        }                             
+                    })
+                    return letters.sort();
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
