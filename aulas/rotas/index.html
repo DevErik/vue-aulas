@@ -34,25 +34,39 @@
 
 		const SubAbout1 = {
 			template: `<div>SubAbout1 Page</div>`
-		} 
+		}
 
 		const SubAbout2 = {
 			template: `<div>SubAbout2 Page</div>`
-		} 
+		}
 
 		const routes = [
 			{ path: '/', component: Home },
 			{
-				path: '/about', component: About,
-				children: [
+				path: '/about', component: About
+
+				/* children: [
 					{ path: 'subabout1', component: SubAbout1 },
 					{ path: 'subabout2', component: SubAbout2 },
-				]
+				] */
 			}
 		]
 
 		const router = new VueRouter({ routes })
 
+		router.beforeEach((to, from, next)=>{
+			if(confirm('Deseja sair desta página?')){
+				next();
+			}
+			else{
+				next(false)
+			}
+/* 
+			next(confirm('Deseja sair desta página?')) */
+		})
+	/* 	router.beforeEach((to, from, next) => {
+			next(false)
+		}) */
 		var app = new Vue({
 			el: '#app',
 			router

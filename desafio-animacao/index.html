@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js</title>
+</head>
+
+<body>
+
+	<div id="app">
+        <input type="text" v-model="styles.color"></input>
+        <input type="text" v-model="styles.fontSize"></input>
+        <div :style="styles">Hello World!</div>
+	</div>
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				styles: {
+                    color: 'black',
+					fontSize: '16px'
+				}
+			},
+			methods:{
+				onEnter: function(){
+					console.log('oi')
+				} 
+			}
+		})
+
+	</script>
+	<style>
+		.myDiv {
+			background-color: green;
+			transition: opacity 05s ease;
+			opacity: 0;
+		}
+
+		.active {
+			opacity: 1;
+		}
+
+		.myAnimation-enter-active, .myAnimation-leave-active{
+			transition: opacity .5s;
+		}
+		.myAnimation-enter, .myAnimation-leave-active{
+			opacity: 0;
+		}
+	</style>
+</body>
+
+</html>

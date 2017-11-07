@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<div :style="[myStyle, myStyle2]">Hello</div>
+		<button @click="isActive = !isActive">toggle</button>
+		<div class="myDiv" :class="{active: isActive}">Hello</div>
+		<button @click="show = !show">Click me</button>
+		<transition name="myAnimation" @enter="onEnter">
+			<p v-if="show">Bye</p>
+		</transition>
+	</div>
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				myStyle: {
+					fontSize: '15px'
+				},
+				myStyle2: {
+					color: 'red'
+				},
+				isActive: true,
+				show: true
+			},
+			methods:{
+				onEnter: function(){
+					console.log('oi')
+				} 
+			}
+		})
+
+	</script>
+	<style>
+		.myDiv {
+			background-color: green;
+			transition: opacity 05s ease;
+			opacity: 0;
+		}
+
+		.active {
+			opacity: 1;
+		}
+
+		.myAnimation-enter-active, .myAnimation-leave-active{
+			transition: opacity .5s;
+		}
+		.myAnimation-enter, .myAnimation-leave-active{
+			opacity: 0;
+		}
+	</style>
+</body>
+
+</html>
